@@ -70,6 +70,8 @@
                 } else {
                     $tip.css({visibility: 'visible', opacity: this.options.opacity});
                 }
+                // if there's a callback, run it
+                if( $.isFunction(this.options.afterShow) ) this.options.afterShow.apply(self);
             }
         },
         
@@ -188,7 +190,8 @@
         offset: 0,
         opacity: 0.8,
         title: 'title',
-        trigger: 'hover'
+        trigger: 'hover',
+        afterShow: null //call back after the tip is shown
     };
     
     // Overwrite this method to provide options on a per-element basis.
