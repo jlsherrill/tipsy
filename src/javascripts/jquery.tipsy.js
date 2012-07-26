@@ -117,11 +117,11 @@
         },
         fetchData: function(){
             var o = this.options, 
-            tipsy = this,
-            url = o.url;
+                tipsy = this,
+                url = o.url;
 
             if(o.url && !this.fetching){
-                if (typeof o.url == 'function') {
+                if (typeof o.url === 'function') {
                     url = url(this.$element);
                 }
                 $.get(url, {}, function(data){
@@ -137,7 +137,7 @@
             var title, $e = this.$element, o = this.options;
             this.fixTitle();
             var title, o = this.options;
-            if (typeof o.title == 'string') {
+            if (typeof o.title === 'string') {
                 title = $e.attr(o.title == 'title' ? 'original-title' : o.title);
             } else if (typeof o.title == 'function') {
                 title = o.title.call($e[0]);
